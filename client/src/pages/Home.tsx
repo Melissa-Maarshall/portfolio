@@ -291,10 +291,17 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "4rem", alignItems: "center" }}>
             {/* Profile image */}
             <div className="fade-up" style={{ position: "relative" }}>
-              <div style={{ position: "absolute", top: "-1.5rem", left: "-1.5rem", width: "100%", height: "100%", border: "2px solid oklch(0.72 0.12 75)", borderRadius: "0.5rem", zIndex: 0 }} />
-              <img src={PROFILE_IMG} alt="Melissa Maarschalkerweerd" style={{ width: "100%", borderRadius: "0.5rem", position: "relative", zIndex: 1, display: "block", objectFit: "cover", maxHeight: "480px" }} />
-              <div style={{ position: "absolute", bottom: "1.5rem", right: "-1.5rem", zIndex: 2, boxShadow: "0 8px 32px rgba(0,0,0,0.25)", borderRadius: "0.5rem", overflow: "hidden", width: "120px" }}>
+              {/* AMASA award image above profile */}
+              <div style={{ marginBottom: "1.25rem", borderRadius: "0.5rem", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.12)" }}>
                 <img src={`${import.meta.env.BASE_URL}amasa_award.jpg`} alt="AMASA Award Winner" style={{ width: "100%", height: "auto", display: "block", borderRadius: "0.5rem" }} />
+              </div>
+              <div style={{ position: "relative" }}>
+                <div style={{ position: "absolute", top: "-1.5rem", left: "-1.5rem", width: "100%", height: "100%", border: "2px solid oklch(0.72 0.12 75)", borderRadius: "0.5rem", zIndex: 0 }} />
+                <img src={PROFILE_IMG} alt="Melissa Maarschalkerweerd" style={{ width: "100%", borderRadius: "0.5rem", position: "relative", zIndex: 1, display: "block", objectFit: "cover", maxHeight: "480px" }} />
+                <div style={{ position: "absolute", bottom: "1.5rem", right: "-1.5rem", background: "oklch(0.22 0.04 220)", borderRadius: "0.5rem", padding: "1.25rem 1.5rem", zIndex: 2, boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.75rem", fontWeight: 700, color: "oklch(0.72 0.12 75)", lineHeight: 1 }}>AMASA</div>
+                  <div style={{ fontFamily: "'Raleway', sans-serif", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginTop: "0.25rem" }}>Award Winner</div>
+                </div>
               </div>
             </div>
             {/* Text */}
