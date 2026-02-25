@@ -1,0 +1,166 @@
+/* ============================================================
+   DESIGN SYSTEM: Contemporary Executive Brand — Dark Teal Prestige
+   Philosophy: Executive authority through dark navy-teal palette,
+   gold accents, Cormorant Garamond display + Raleway headers +
+   Nunito Sans body. Full-width horizontal band architecture.
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand custom tokens */
+  --color-navy: oklch(0.22 0.04 220);
+  --color-teal: oklch(0.35 0.06 210);
+  --color-teal-light: oklch(0.45 0.07 205);
+  --color-gold: oklch(0.72 0.12 75);
+  --color-gold-light: oklch(0.82 0.10 78);
+  --color-cream: oklch(0.97 0.01 80);
+  --color-slate-light: oklch(0.92 0.005 220);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.97 0.005 80);
+  --foreground: oklch(0.18 0.02 220);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 220);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 220);
+  --primary: oklch(0.35 0.06 210);
+  --primary-foreground: oklch(0.97 0.005 80);
+  --secondary: oklch(0.93 0.01 80);
+  --secondary-foreground: oklch(0.25 0.03 220);
+  --muted: oklch(0.94 0.005 80);
+  --muted-foreground: oklch(0.52 0.02 220);
+  --accent: oklch(0.72 0.12 75);
+  --accent-foreground: oklch(0.18 0.02 220);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.01 220);
+  --input: oklch(0.88 0.01 220);
+  --ring: oklch(0.35 0.06 210);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+  }
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Gold rule divider */
+  .gold-rule {
+    width: 3.5rem;
+    height: 2px;
+    background: oklch(0.72 0.12 75);
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Section heading style */
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: oklch(0.72 0.12 75);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Animate on scroll utility */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays */
+  .delay-100 { transition-delay: 0.1s; }
+  .delay-200 { transition-delay: 0.2s; }
+  .delay-300 { transition-delay: 0.3s; }
+  .delay-400 { transition-delay: 0.4s; }
+  .delay-500 { transition-delay: 0.5s; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.22 0.04 220);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.72 0.12 75);
+  border-radius: 3px;
+}
